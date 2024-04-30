@@ -1,0 +1,160 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+ul,li {
+	list-style: none;
+}
+a {
+	text-decoration: none;
+}
+.president {
+	width: 100%;
+	height: auto;
+}
+.president main {
+	width: 100%;
+	height: auto;
+	display: flex;
+	justify-content: center;
+}
+.president main .margin .presidentList {
+	width: 100%;
+	height: auto;
+	margin-top: 20px;
+}
+.president main .margin .presidentList li .listRight  {
+	margin-left: 20px;
+}
+.president main .margin .presidentList li .listRight .presidentName {
+	height: 60px;
+	line-height: 60px;
+	font-size: 16px;
+	color: #717171;
+	margin-top: 20px;
+}
+.president main .margin .presidentList li .listRight .presidentContent {
+	width: 98%;
+	height: calc(90% - 80px);
+	line-height: 30px;
+	color: #A2A2A2;
+}
+.president main .margin .presidentList li .listRight .presidentbottom {
+	display: flex;
+	justify-content: flex-end;
+}
+.president main .margin .presidentList li .listRight .presidentbottom .presidentButton {
+	width: 80px;
+	height: 30px;
+	border-radius: 20px;
+	outline: none;
+	background: none;
+	border: 1px solid #dedfe1;
+	margin-right: 5px;
+	color: #CCCCCC;
+}
+.president main .margin .presidentList li .listRight .presidentbottom .presidentButton:hover {
+	background: #dedfe1;
+	color: #FFFFFF;
+}
+@media only screen and (min-width: 1200px) {
+	.president main .margin {
+		width: 1200px;
+		height: auto;
+	}
+.president main .margin .presidentTitle {
+	width: 100%;
+	height: 40px;
+	line-height: 20px;
+	background: url(../picture/download.jpg)no-repeat;
+	margin-top: 20px;
+	font-size: 20px;
+	color: #1288ca;
+	text-indent: 30px;
+	vertical-align: middle;
+}
+.president main .margin .presidentList li {
+	width: 100%;
+	height: 274px;
+	border: 1px solid transparent;
+	background: #f7f7f7;
+	margin-bottom: 40px;
+	display: flex;
+	justify-content: flex-start;
+}
+.president main .margin .presidentList li .listLeft {
+	width: 25%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	position: relative;
+}
+.president main .margin .presidentList li .listLeft .positonli {
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	background: #000000;
+	opacity: 0.5;
+	z-index: 100;
+	display: none;
+} 
+.president main .margin .presidentList li .listLeft img {
+	display:inline-block;
+	height: 100%;
+	width: auto;
+}
+.president main .margin .presidentList li .listRight {
+	width: 70%;
+	height: 100%;
+}
+.president main .margin .page {
+	
+}
+	.president main .margin .presidentList .detailstitleY {
+		display: none;
+	}
+}
+@media only screen and (max-width: 1200px){
+	.president main .margin {
+		width: 100%;
+		height: auto;
+	}
+ 	.president main .margin .presidentTitle {
+	width: 100%;
+	height: 40px;
+	line-height: 20px;
+	background: url(../picture/download.jpg)no-repeat;
+	margin-top: 20px;
+	font-size: 20px;
+	color: #1288ca;
+	text-indent: 30px;
+	vertical-align: middle;
+	}
+	.president main .margin .presidentList {
+		width: 100%;
+		height:auto;
+	}
+	.president main .margin .presidentList li {
+		
+	}
+	.president main .margin .presidentList li .listLeft{
+		width: 90%;
+		height: auto;
+		margin: auto;
+	}
+	.president main .margin .presidentList li .listLeft img {
+		display: inline-block;
+		width: 100%;
+		height: 100%;
+	}
+	.president main .margin .presidentList li .listRight {
+		width: 90%;
+		height: auto;
+		margin: auto;
+	}
+	.president main .margin .presidentList li .listRight .presidentbottom {
+		margin-bottom: 20px;
+	}
+}

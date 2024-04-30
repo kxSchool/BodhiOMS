@@ -1,0 +1,125 @@
+/* all */
+html,body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+}
+img {
+    display: block;
+    width: auto;
+    height: 100%;
+}
+*{
+    margin: 0;
+    padding: 0;
+}
+ul,li {
+    list-style: none;
+}
+a {
+    text-decoration: none;
+}
+.index main .margin .mainContent .contentTitle .contentBorder {
+    width: 30px;
+    height: 2px;
+    background: #1289cd;
+    margin-top: 12px;
+}
+.index main .margin .mainContent .contentTitle .contentname {
+    vertical-align: middle;
+    line-height: 24px;
+    font-weight: bold;
+    font-size: 18px;
+    margin: 0 4px;
+}
+.index main .margin .mainContent .contentTitle {
+    height: 48px;
+    margin: auto;
+    color: #1289cd;
+    display: flex;
+    justify-content: center;
+}
+.index main .margin .mainContent .patientContent .patientRight {
+    font-size: 18px;
+    color: #707070;
+    line-height: 32px;
+}
+/* pc */
+@media only screen and (min-width: 1200px){
+    .index {
+        width: 100%;
+        height: 100%;
+    }
+    /* main */
+    .index main {
+        width: 100%;
+        height: auto;
+        display: flex;
+        justify-content: center;
+    }
+    .index main .margin {
+        width: 1200px;
+    }
+    .index main .margin .mainContent {
+        padding-top: 30px;
+    }
+    .index main .margin .mainContent .contentTitle {
+        width: 100%;
+    }
+    .index main .margin .mainContent .patientContent {
+        width: 100%;
+        height: auto;
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 20px;
+    }
+    .index main .margin .mainContent .patientContent .patientLeft {
+        width: 30%;
+        height: auto;
+        margin: auto;
+    }
+    .index main .margin .mainContent .patientContent .patientLeft img {
+        display: inline-block;
+        width: 100%;
+        height: 300px;
+    }
+    .index main .margin .mainContent .patientContent .patientRight {
+        margin-left: 1%;
+        width: 69%;
+    }
+}
+/* 移动 */
+@media only screen and (max-width: 1200px){
+    .index {
+        width: 100%;
+        height: 100%;
+    }
+    /* main */
+    .index .margin .mainTitle {
+        display: none;
+    }
+    .index main .margin .mainContent {
+        /* padding-top: 30px; */
+    }
+    .index main .margin .mainContent .contentTitle {
+        width:80%;
+        margin-top: 20px;
+    }
+    .index main .margin .mainContent .patientContent {
+        width:90%;
+        height: auto;
+        margin: auto;
+        margin-bottom: 20px;
+    } 
+    .index main .margin .mainContent .patientContent .patientLeft {
+        width: 100%;
+        height: auto;
+        margin-bottom: 20px;
+    }
+    .index main .margin .mainContent .patientContent .patientLeft img {
+        display: inline-block;
+        width: 100%;
+        height: auto;
+    }
+}

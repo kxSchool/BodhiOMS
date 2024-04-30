@@ -1,0 +1,441 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.penguin.website.mapper.penguin.PenguinsOrderMapper">
+  <resultMap id="BaseResultMap" type="com.penguin.website.model.domain.PenguinsOrder">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="order_no" jdbcType="BIGINT" property="orderNo" />
+    <result column="order_type" jdbcType="INTEGER" property="orderType" />
+    <result column="order_status" jdbcType="INTEGER" property="orderStatus" />
+    <result column="order_time" jdbcType="TIMESTAMP" property="orderTime" />
+    <result column="order_user_id" jdbcType="VARCHAR" property="orderUserId" />
+    <result column="order_user_real_name" jdbcType="VARCHAR" property="orderUserRealName" />
+    <result column="order_user_account" jdbcType="VARCHAR" property="orderUserAccount" />
+    <result column="order_user_nickname" jdbcType="VARCHAR" property="orderUserNickname" />
+    <result column="order_price_cny" jdbcType="DECIMAL" property="orderPriceCny" />
+    <result column="order_price_saro" jdbcType="DECIMAL" property="orderPriceSaro" />
+    <result column="order_unit_price" jdbcType="DECIMAL" property="orderUnitPrice" />
+    <result column="pay_amount" jdbcType="DECIMAL" property="payAmount" />
+    <result column="order_transactor_id" jdbcType="VARCHAR" property="orderTransactorId" />
+    <result column="order_transactor_account" jdbcType="VARCHAR" property="orderTransactorAccount" />
+    <result column="transactor_proof_path" jdbcType="VARCHAR" property="transactorProofPath" />
+    <result column="order_actual_saro" jdbcType="DECIMAL" property="orderActualSaro" />
+    <result column="order_remark" jdbcType="VARCHAR" property="orderRemark" />
+    <result column="user_snapshot" jdbcType="VARCHAR" property="userSnapshot" />
+    <result column="merchant_snapshot" jdbcType="VARCHAR" property="merchantSnapshot" />
+    <result column="confirm_time" jdbcType="TIMESTAMP" property="confirmTime" />
+    <result column="pay_time" jdbcType="TIMESTAMP" property="payTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="back_message" jdbcType="VARCHAR" property="backMessage" />
+  </resultMap>
+
+  <sql id="Base_Column_List">
+    id, order_no, order_type, order_status, order_time, order_user_id, order_user_real_name, 
+    order_user_account, order_user_nickname, order_price_cny, order_price_saro, order_unit_price, 
+    pay_amount, order_transactor_id, order_transactor_account, transactor_proof_path, 
+    order_actual_saro, order_remark, user_snapshot, merchant_snapshot, confirm_time, 
+    pay_time, update_time, back_message
+  </sql>
+
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from penguins_order
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from penguins_order
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.penguin.website.model.domain.PenguinsOrder" useGeneratedKeys="true">
+    insert into penguins_order (order_no, order_type, order_status, 
+      order_time, order_user_id, order_user_real_name, 
+      order_user_account, order_user_nickname, order_price_cny, 
+      order_price_saro, order_unit_price, pay_amount, 
+      order_transactor_id, order_transactor_account, 
+      transactor_proof_path, order_actual_saro, order_remark, 
+      user_snapshot, merchant_snapshot, confirm_time, 
+      pay_time, update_time, back_message
+      )
+    values (#{orderNo,jdbcType=BIGINT}, #{orderType,jdbcType=INTEGER}, #{orderStatus,jdbcType=INTEGER}, 
+      #{orderTime,jdbcType=TIMESTAMP}, #{orderUserId,jdbcType=VARCHAR}, #{orderUserRealName,jdbcType=VARCHAR}, 
+      #{orderUserAccount,jdbcType=VARCHAR}, #{orderUserNickname,jdbcType=VARCHAR}, #{orderPriceCny,jdbcType=DECIMAL}, 
+      #{orderPriceSaro,jdbcType=DECIMAL}, #{orderUnitPrice,jdbcType=DECIMAL}, #{payAmount,jdbcType=DECIMAL}, 
+      #{orderTransactorId,jdbcType=VARCHAR}, #{orderTransactorAccount,jdbcType=VARCHAR}, 
+      #{transactorProofPath,jdbcType=VARCHAR}, #{orderActualSaro,jdbcType=DECIMAL}, #{orderRemark,jdbcType=VARCHAR}, 
+      #{userSnapshot,jdbcType=VARCHAR}, #{merchantSnapshot,jdbcType=VARCHAR}, #{confirmTime,jdbcType=TIMESTAMP}, 
+      #{payTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{backMessage,jdbcType=VARCHAR}
+      )
+  </insert>
+
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.penguin.website.model.domain.PenguinsOrder" useGeneratedKeys="true">
+    insert into penguins_order
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="orderNo != null">
+        order_no,
+      </if>
+      <if test="orderType != null">
+        order_type,
+      </if>
+      <if test="orderStatus != null">
+        order_status,
+      </if>
+      <if test="orderTime != null">
+        order_time,
+      </if>
+      <if test="orderUserId != null">
+        order_user_id,
+      </if>
+      <if test="orderUserRealName != null">
+        order_user_real_name,
+      </if>
+      <if test="orderUserAccount != null">
+        order_user_account,
+      </if>
+      <if test="orderUserNickname != null">
+        order_user_nickname,
+      </if>
+      <if test="orderPriceCny != null">
+        order_price_cny,
+      </if>
+      <if test="orderPriceSaro != null">
+        order_price_saro,
+      </if>
+      <if test="orderUnitPrice != null">
+        order_unit_price,
+      </if>
+      <if test="payAmount != null">
+        pay_amount,
+      </if>
+      <if test="orderTransactorId != null">
+        order_transactor_id,
+      </if>
+      <if test="orderTransactorAccount != null">
+        order_transactor_account,
+      </if>
+      <if test="transactorProofPath != null">
+        transactor_proof_path,
+      </if>
+      <if test="orderActualSaro != null">
+        order_actual_saro,
+      </if>
+      <if test="orderRemark != null">
+        order_remark,
+      </if>
+      <if test="userSnapshot != null">
+        user_snapshot,
+      </if>
+      <if test="merchantSnapshot != null">
+        merchant_snapshot,
+      </if>
+      <if test="confirmTime != null">
+        confirm_time,
+      </if>
+      <if test="payTime != null">
+        pay_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="backMessage != null">
+        back_message,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="orderNo != null">
+        #{orderNo,jdbcType=BIGINT},
+      </if>
+      <if test="orderType != null">
+        #{orderType,jdbcType=INTEGER},
+      </if>
+      <if test="orderStatus != null">
+        #{orderStatus,jdbcType=INTEGER},
+      </if>
+      <if test="orderTime != null">
+        #{orderTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="orderUserId != null">
+        #{orderUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="orderUserRealName != null">
+        #{orderUserRealName,jdbcType=VARCHAR},
+      </if>
+      <if test="orderUserAccount != null">
+        #{orderUserAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="orderUserNickname != null">
+        #{orderUserNickname,jdbcType=VARCHAR},
+      </if>
+      <if test="orderPriceCny != null">
+        #{orderPriceCny,jdbcType=DECIMAL},
+      </if>
+      <if test="orderPriceSaro != null">
+        #{orderPriceSaro,jdbcType=DECIMAL},
+      </if>
+      <if test="orderUnitPrice != null">
+        #{orderUnitPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="payAmount != null">
+        #{payAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="orderTransactorId != null">
+        #{orderTransactorId,jdbcType=VARCHAR},
+      </if>
+      <if test="orderTransactorAccount != null">
+        #{orderTransactorAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="transactorProofPath != null">
+        #{transactorProofPath,jdbcType=VARCHAR},
+      </if>
+      <if test="orderActualSaro != null">
+        #{orderActualSaro,jdbcType=DECIMAL},
+      </if>
+      <if test="orderRemark != null">
+        #{orderRemark,jdbcType=VARCHAR},
+      </if>
+      <if test="userSnapshot != null">
+        #{userSnapshot,jdbcType=VARCHAR},
+      </if>
+      <if test="merchantSnapshot != null">
+        #{merchantSnapshot,jdbcType=VARCHAR},
+      </if>
+      <if test="confirmTime != null">
+        #{confirmTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="payTime != null">
+        #{payTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="backMessage != null">
+        #{backMessage,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+
+  <update id="updateByPrimaryKeySelective" parameterType="com.penguin.website.model.domain.PenguinsOrder">
+    update penguins_order
+    <set>
+      <if test="orderNo != null">
+        order_no = #{orderNo,jdbcType=BIGINT},
+      </if>
+      <if test="orderType != null">
+        order_type = #{orderType,jdbcType=INTEGER},
+      </if>
+      <if test="orderStatus != null">
+        order_status = #{orderStatus,jdbcType=INTEGER},
+      </if>
+      <if test="orderTime != null">
+        order_time = #{orderTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="orderUserId != null">
+        order_user_id = #{orderUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="orderUserRealName != null">
+        order_user_real_name = #{orderUserRealName,jdbcType=VARCHAR},
+      </if>
+      <if test="orderUserAccount != null">
+        order_user_account = #{orderUserAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="orderUserNickname != null">
+        order_user_nickname = #{orderUserNickname,jdbcType=VARCHAR},
+      </if>
+      <if test="orderPriceCny != null">
+        order_price_cny = #{orderPriceCny,jdbcType=DECIMAL},
+      </if>
+      <if test="orderPriceSaro != null">
+        order_price_saro = #{orderPriceSaro,jdbcType=DECIMAL},
+      </if>
+      <if test="orderUnitPrice != null">
+        order_unit_price = #{orderUnitPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="payAmount != null">
+        pay_amount = #{payAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="orderTransactorId != null">
+        order_transactor_id = #{orderTransactorId,jdbcType=VARCHAR},
+      </if>
+      <if test="orderTransactorAccount != null">
+        order_transactor_account = #{orderTransactorAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="transactorProofPath != null">
+        transactor_proof_path = #{transactorProofPath,jdbcType=VARCHAR},
+      </if>
+      <if test="orderActualSaro != null">
+        order_actual_saro = #{orderActualSaro,jdbcType=DECIMAL},
+      </if>
+      <if test="orderRemark != null">
+        order_remark = #{orderRemark,jdbcType=VARCHAR},
+      </if>
+      <if test="userSnapshot != null">
+        user_snapshot = #{userSnapshot,jdbcType=VARCHAR},
+      </if>
+      <if test="merchantSnapshot != null">
+        merchant_snapshot = #{merchantSnapshot,jdbcType=VARCHAR},
+      </if>
+      <if test="confirmTime != null">
+        confirm_time = #{confirmTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="payTime != null">
+        pay_time = #{payTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="backMessage != null">
+        back_message = #{backMessage,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+
+  <update id="updateByPrimaryKey" parameterType="com.penguin.website.model.domain.PenguinsOrder">
+    update penguins_order
+    set order_no = #{orderNo,jdbcType=BIGINT},
+      order_type = #{orderType,jdbcType=INTEGER},
+      order_status = #{orderStatus,jdbcType=INTEGER},
+      order_time = #{orderTime,jdbcType=TIMESTAMP},
+      order_user_id = #{orderUserId,jdbcType=VARCHAR},
+      order_user_real_name = #{orderUserRealName,jdbcType=VARCHAR},
+      order_user_account = #{orderUserAccount,jdbcType=VARCHAR},
+      order_user_nickname = #{orderUserNickname,jdbcType=VARCHAR},
+      order_price_cny = #{orderPriceCny,jdbcType=DECIMAL},
+      order_price_saro = #{orderPriceSaro,jdbcType=DECIMAL},
+      order_unit_price = #{orderUnitPrice,jdbcType=DECIMAL},
+      pay_amount = #{payAmount,jdbcType=DECIMAL},
+      order_transactor_id = #{orderTransactorId,jdbcType=VARCHAR},
+      order_transactor_account = #{orderTransactorAccount,jdbcType=VARCHAR},
+      transactor_proof_path = #{transactorProofPath,jdbcType=VARCHAR},
+      order_actual_saro = #{orderActualSaro,jdbcType=DECIMAL},
+      order_remark = #{orderRemark,jdbcType=VARCHAR},
+      user_snapshot = #{userSnapshot,jdbcType=VARCHAR},
+      merchant_snapshot = #{merchantSnapshot,jdbcType=VARCHAR},
+      confirm_time = #{confirmTime,jdbcType=TIMESTAMP},
+      pay_time = #{payTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      back_message = #{backMessage,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+
+  <select id="getOrderList" parameterType="com.penguin.website.bean.req.REQPenguinsOrder" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from penguins_order
+    where 1 = 1
+    <if test="orderNo != null">
+      and order_no = #{orderNo,jdbcType=VARCHAR}
+    </if>
+    <if test="orderNoStr != null">
+      and order_no LIKE CONCAT('%', #{orderNoStr,jdbcType=VARCHAR}, '%')
+    </if>
+    <if test="orderType != null">
+      and order_type = #{orderType,jdbcType=INTEGER}
+    </if>
+    <if test="orderStatus != null">
+      and order_status = #{orderStatus,jdbcType=INTEGER}
+    </if>
+    <if test="orderUserId != null">
+      and order_user_id = #{orderUserId,jdbcType=VARCHAR}
+    </if>
+    <if test="startOrderTime != null">
+      and order_time <![CDATA[ >= ]]>#{startOrderTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="endOrderTime != null">
+      and order_time <![CDATA[ <= ]]> #{endOrderTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="startConfirmTime != null">
+      and confirm_time <![CDATA[ >= ]]> #{startConfirmTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="endConfirmTime != null">
+      and confirm_time <![CDATA[ <= ]]> #{endConfirmTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="orderTransactorId != null">
+      and order_transactor_id = #{orderTransactorId,jdbcType=VARCHAR}
+    </if>
+    <if test="nickname != null">
+      and order_user_nickname LIKE CONCAT('%', #{nickname,jdbcType=VARCHAR}, '%')
+    </if>
+    <if test="userAccount != null">
+      and order_user_account LIKE CONCAT('%', #{userAccount,jdbcType=VARCHAR}, '%')
+    </if>
+    <if test="merchantAccount != null">
+      and order_transactor_account LIKE CONCAT('%', #{merchantAccount,jdbcType=VARCHAR}, '%')
+    </if>
+    ORDER BY order_time DESC
+    <if test="page != null and size != null and size != ''">
+      LIMIT #{page,jdbcType=INTEGER},#{size,jdbcType=INTEGER}
+    </if>
+
+  </select>
+
+  <select id="getOrderListCount" parameterType="com.penguin.website.bean.req.REQPenguinsOrder" resultType="java.lang.Integer">
+    select COUNT(1)
+    from penguins_order
+    where 1 = 1
+    <if test="orderNo != null">
+      and order_no = #{orderNo,jdbcType=VARCHAR}
+    </if>
+    <if test="orderNoStr != null">
+      and order_no LIKE CONCAT('%', #{orderNoStr,jdbcType=VARCHAR}, '%')
+    </if>
+    <if test="orderType != null">
+      and order_type = #{orderType,jdbcType=INTEGER}
+    </if>
+    <if test="orderStatus != null">
+      and order_status = #{orderStatus,jdbcType=INTEGER}
+    </if>
+    <if test="orderUserId != null">
+      and order_user_id = #{orderUserId,jdbcType=VARCHAR}
+    </if>
+    <if test="startOrderTime != null">
+      and order_time <![CDATA[ >= ]]>#{startOrderTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="endOrderTime != null">
+      and order_time <![CDATA[ <= ]]> #{endOrderTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="startConfirmTime != null">
+      and confirm_time <![CDATA[ >= ]]> #{startConfirmTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="endConfirmTime != null">
+      and confirm_time <![CDATA[ <= ]]> #{endConfirmTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="orderTransactorId != null">
+      and order_transactor_id = #{orderTransactorId,jdbcType=VARCHAR}
+    </if>
+    <if test="nickname != null">
+      and order_user_nickname LIKE CONCAT('%', #{nickname,jdbcType=VARCHAR}, '%')
+    </if>
+    <if test="userAccount != null">
+      and order_user_account LIKE CONCAT('%', #{userAccount,jdbcType=VARCHAR}, '%')
+    </if>
+    <if test="merchantAccount != null">
+      and order_transactor_account LIKE CONCAT('%', #{merchantAccount,jdbcType=VARCHAR}, '%')
+    </if>
+
+  </select>
+
+  <select id="selectByUserId" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from penguins_merchant_price
+    where user_id = #{userId,jdbcType=VARCHAR} AND merchant_status = 1 oRDER BY update_time LIMIT 1
+  </select>
+
+  <select id="getTransReport" resultType="com.penguin.website.bean.rsp.RspTransReport">
+    SELECT SUM(order_actual_saro) totalSaro,SUM(pay_amount) totalCny FROM penguins_order  WHERE 1 = 1
+    <if test="startDate != null">
+      AND confirm_time &gt;= #{startDate,jdbcType=TIMESTAMP}
+    </if>
+    <if test="endDate != null">
+      AND confirm_time &lt; #{endDate,jdbcType=TIMESTAMP}
+    </if>
+    <if test="orderStatus != null">
+      AND order_status = #{orderStatus,jdbcType=INTEGER}
+    </if>
+    <if test="orderType != null">
+      AND order_type = #{orderType,jdbcType=INTEGER}
+    </if>
+  </select>
+</mapper>

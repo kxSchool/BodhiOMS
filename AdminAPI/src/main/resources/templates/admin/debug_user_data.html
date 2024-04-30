@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:thSys="">
+<div th:replace="admin/module/macros :: head('游戏接口调试')"></div>
+<body class="app sidebar-mini rtl">
+<main class="app-content">
+    <div th:replace="admin/module/macros :: header"></div>
+    <div th:replace="admin/module/macros :: sidebar"></div>
+    <div class="tile mb-4">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="page-header">
+                    <h2 class="mb-3 line-head" id="navs">游戏接口调试</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row" style="margin-bottom: 2rem;">
+            <div class="col-lg-12">
+                <div class="bs-component">
+                    <ul class="nav nav-tabs">
+                        <li class="nav-item"><a class="nav-link active"
+                                                data-toggle="tab" href="#data">获取用户信息</a></li>
+                        <li class="nav-item"><a class="nav-link" data-toggle="tab"
+                                                href="#password">获取商户列表</a></li>
+                        <li class="nav-item"><a class="nav-link" data-toggle="tab"
+                                                href="#userTrade">提交交易</a></li>
+                    </ul>
+                    <div class="tab-content" id="myTabContent">
+                        <div class="tab-pane fade active show col-lg-12" id="data">
+                            <form class="form-horizontal" id="dataFrom" autocomplete="off">
+                                <input class="form-control" type="hidden" name="userId">
+                                <div class="form-group row mt-3">
+                                    <label class="control-label col-md-2">游戏token：</label>
+                                    <div class="col-md-8">
+                                        <input class="form-control" type="text" id="user_token">
+                                    </div>
+                                </div>
+                                <div class="tile-footer">
+                                    <div class="row">
+                                        <div class="col-md-8 col-md-offset-3">
+                                            <button class="btn btn-sm btn-outline-primary" type="button"
+                                                    onclick="getUserInfo()">
+                                                <i class="fa fa-fw fa-lg fa-check-circle"></i>提交
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                            <div class="tile-footer"></div>
+                            <form class="form-horizontal col-md-12" id="" autocomplete="off">
+                                <div class="form-group row">
+                                    <label class="control-label col-md-12">接口返回：</label>
+                                    <div class="col-md-12">
+                                        <div class="input-group">
+											<textarea class="form-control"
+                                                       rows="30" id="dataRspFrom"
+                                                      name="dataRspFrom" style="resize: none"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="tab-pane fade col-lg-12" id="password">
+                            <form class="form-horizontal" id="merchantsFrom" autocomplete="off">
+                                <input class="form-control" type="hidden"
+                                        id="userId" name="userId">
+                                <div class="form-group row mt-3">
+                                    <label class="control-label col-md-2">游戏token：</label>
+                                    <div class="col-md-8">
+                                        <input class="form-control" type="text" id="user_token2">
+                                    </div>
+                                </div>
+                                <div class="tile-footer">
+                                    <div class="row">
+                                        <div class="col-md-8 col-md-offset-3">
+                                            <button class="btn btn-sm btn-outline-primary" type="button"
+                                                    onclick="getMerchants()">
+                                                <i class="fa fa-fw fa-lg fa-check-circle"></i>提交
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                            <div class="tile-footer"></div>
+                            <form class="form-horizontal col-md-12" id="merchantsFrom2" autocomplete="off">
+                                <div class="form-group row">
+                                    <label class="control-label col-md-12">接口返回：</label>
+                                    <div class="col-md-12">
+                                        <div class="input-group">
+											<textarea class="form-control"
+                                                      rows="30" id="merchantsRspFrom"
+                                                      name="merchantsRspFrom" style="resize: none"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="tab-pane fade col-lg-12" id="userTrade">
+                            <form class="form-horizontal" id="userTradeFrom" autocomplete="off">
+                                <div class="form-group row mt-3">
+                                    <label class="control-label col-md-2">游戏token：</label>
+                                    <div class="col-md-8">
+                                        <input class="form-control" type="text" id="user_token3">
+                                    </div>
+                                </div>
+                                <div class="form-group row mt-3">
+                                    <label class="control-label col-md-2">order_no：</label>
+                                    <div class="col-md-8">
+                                        <input class="form-control" type="text" id="order_no">
+                                    </div>
+                                </div>
+                                <div class="form-group row mt-3">
+                                    <label class="control-label col-md-2">saro_quantity：</label>
+                                    <div class="col-md-8">
+                                        <input class="form-control" type="text" id="saro_quantity">
+                                    </div>
+                                </div>
+                                <div class="tile-footer">
+                                    <div class="row">
+                                        <div class="col-md-8 col-md-offset-3">
+                                            <button class="btn btn-sm btn-outline-primary" type="button"
+                                                    onclick="pushOrder()">
+                                                <i class="fa fa-fw fa-lg fa-check-circle"></i>提交
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                            <div class="tile-footer"></div>
+                            <form class="form-horizontal col-md-12" id="userTradeInfo" autocomplete="off">
+                                <div class="form-group row">
+                                    <label class="control-label col-md-12">接口返回：</label>
+                                    <div class="col-md-12">
+                                        <div class="input-group">
+											<textarea class="form-control"
+                                                      rows="30" id="userTradeResp"
+                                                      name="merchantsRspFrom" style="resize: none"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<div th:replace="admin/module/macros :: comm"></div>
+<script src="/plugins/layer/layer.js"></script>
+<script src="/js/common.js"></script>
+<script type="text/javascript">
+    //保存资料
+    function getUserInfo() {
+        var token=$('#user_token').val();
+        var data=ajaxRequest("GET","/external/debug/user_data","token="+token);
+        if(data!=null){
+            $('#dataRspFrom').val(JSON.stringify(JSON.parse(JSON.stringify(data)),null,2));
+        }else{
+            alert("请求异常！");
+        }
+    }
+
+    function getMerchants(){
+        var token=$('#user_token2').val();
+        var data=ajaxRequest("GET","/external/debug/merchants","token="+token);
+        if(data!=null){
+            $('#merchantsRspFrom').val(JSON.stringify(JSON.parse(JSON.stringify(data)),null,2));
+        }else{
+            alert("请求异常！");
+        }
+    }
+
+    function pushOrder(){
+        var params;
+        var token=$('#user_token3').val();
+        var order_no=$('#order_no').val();
+        var saro_quantity=parseInt($('#saro_quantity').val());
+        params={"user_token":token,"order_no":order_no,"saro_quantity":saro_quantity};
+        params=JSON.stringify(params);
+        var data=ajaxRequest("POST","/external/debug/userTrade",params);
+        if(data!=null){
+            $('#userTradeResp').val(JSON.stringify(JSON.parse(JSON.stringify(data)),null,2));
+        }else{
+            alert("请求异常！");
+        }
+    }
+
+</script>
+</body>
+</html>

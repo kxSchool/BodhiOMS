@@ -1,0 +1,171 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+ul,li {
+	list-style: none;
+}
+a {
+	text-decoration: none;
+}
+.departments main {
+	width: 100%;
+	height: auto;
+	/* display: flex;
+	justify-content: center; */
+	}
+	.departments main .margin .departmentsLeft .departmentsUl {
+		width: 100%;
+		height: auto;
+	}
+	.departments main .margin .departmentsLeft .departmentsUlYD {
+		width: 100%;
+		height: auto;
+	}
+	.departments main .margin .departmentsLeft .departmentsUl li {
+		height: 40px;
+		line-height: 40px;
+		border-bottom: 1px solid #e7e8e8;
+	}
+	.departments main .margin .departmentsLeft .departmentsUlYD li {
+		height: 50px;
+		line-height: 50px;
+		border-bottom: 1px solid #e7e8e8;
+		text-indent: 1%;
+	}
+	.departments main .margin .departmentsRight .departmentsconten {
+		text-indent: 20px;
+		line-height: 32px;
+		font-size: 14px;
+		color:#656565;
+	}
+	.departments main .margin .departmentsRight .departmentsimg {
+		width: auto;
+		height: auto;
+	}
+	.departments main .margin .departmentsRight .departmentsimg img {
+		display: inline-block;
+		width: auto;
+		height: auto;
+	}
+@media only screen and (min-width: 1200px) {
+	.departments main .margin {
+		width: 1200px;
+		height: auto;
+		margin: 40px auto;
+		display: flex;
+		justify-content: space-between;
+	}
+	.departments main .margin .departmentsLeft {
+		width: 300px;
+		height: auto;
+		background: #edf6fa;
+	}
+	.departments main .margin .departmentsLeft .leftTop {
+		width: 100%;
+		height: 107px;
+		background: url(../picture/departments.jpg)no-repeat;
+		color: #FFFFFF;
+		text-indent: 80px;
+	}
+	.departments main .margin .departmentsLeft .leftTop .departmentsNamez {
+		font-size: 20px;
+		line-height: 60px;
+		font-weight: bold;
+	}
+	.departments main .margin .departmentsLeft .departmentsUl li {
+		width: 80%;
+		background: #f4f4f4;
+		margin-bottom: 20px;
+		border-radius: 5px;
+		margin: 20px auto;
+		text-align: center;
+	}
+	.departments main .margin .departmentsLeft .departmentsUl li a{
+			color: #128bcf;
+	}
+	.departments main .margin .departmentsLeft .departmentsUlYD {
+		display: none;
+	}
+	.departments main .margin .departmentsRight {
+		width: calc(100% - 340px);
+	}
+	.departments main .margin .departmentsRight .departmentsTitle {
+		width: 100%;
+		height: 40px;
+		line-height: 20px;
+		background: url(../picture/download.jpg)no-repeat;
+		margin-top: 20px;
+		font-size: 20px;
+		color: #1288ca;
+		text-indent: 30px;
+		vertical-align: middle;
+	}
+	.departments main .margin .departmentsRight .departmentsrightUl {
+		width: 100%;
+		display: flex;
+		justify-content: flex-start;
+		flex-wrap: wrap;
+	}
+	.departments main .margin .departmentsRight .departmentsrightUl li {
+		height: 40px;
+		line-height: 40px;
+		width: 30%;
+		margin-right: 5px;
+		margin-bottom: 20px;
+	}
+	.departments main .margin .departmentsRight .departmentsrightUl li span {
+		display: inline-block;
+		width: 10px;
+		height: 10px;
+		border-radius: 50%;
+		background:#1288ca;
+		margin-right: 10px;
+	}
+	.departments main .margin .departmentsLeft .leftTopY {
+		display: none;
+	}
+}
+@media only screen and (max-width: 1200px) {
+	.departments main .margin {
+		width: 100%;
+		height: auto;
+	}
+	.departments main .margin .departmentsLeft {
+		width: 100%;
+		height: auto;
+	}
+	.departments main .margin .departmentsLeft .leftTop {
+		display: none;
+	}
+	.departments main .margin .departmentsLeft .leftTopY {
+		width: 100%;
+		height: 40px;
+		line-height: 40px;
+		background: #1288ca;
+		color: #FFFFFF;
+		text-indent: 5px;
+	}
+	.departments main .margin .departmentsLeft .departmentsUl {
+		display: none;
+	}
+	.departments main .margin .departmentsRight {
+		display: none;
+	}
+	.departments main .margin .departmentsimg {
+		width: 100%;
+		height: auto;
+		margin-bottom: 10px;
+	}
+	.departments main .margin .departmentsimg img {
+		display: inline-block;
+		width: 100%;
+		height: auto;
+	}
+	.departments main .margin  .departmentsconten {
+		text-indent: 20px;
+		line-height: 32px;
+		font-size: 14px;
+		color:#656565;
+	}
+}

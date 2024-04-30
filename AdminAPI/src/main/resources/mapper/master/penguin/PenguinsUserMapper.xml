@@ -1,0 +1,386 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.penguin.website.mapper.penguin.PenguinsUserMapper">
+  <resultMap id="BaseResultMap" type="com.penguin.website.model.domain.PenguinsUser">
+    <id column="user_id" jdbcType="VARCHAR" property="userId" />
+    <result column="user_token" jdbcType="VARCHAR" property="userToken" />
+    <result column="user_name" jdbcType="VARCHAR" property="userName" />
+    <result column="user_account" jdbcType="VARCHAR" property="userAccount" />
+    <result column="nickname" jdbcType="VARCHAR" property="nickname" />
+    <result column="user_phone" jdbcType="VARCHAR" property="userPhone" />
+    <result column="user_phone2" jdbcType="VARCHAR" property="userPhone2" />
+    <result column="user_phone3" jdbcType="VARCHAR" property="userPhone3" />
+    <result column="user_status" jdbcType="INTEGER" property="userStatus" />
+    <result column="user_role" jdbcType="INTEGER" property="userRole" />
+    <result column="bank_favour" jdbcType="VARCHAR" property="bankFavour" />
+    <result column="user_bank" jdbcType="VARCHAR" property="userBank" />
+    <result column="user_bank_card" jdbcType="VARCHAR" property="userBankCard" />
+    <result column="user_bank_branch" jdbcType="VARCHAR" property="userBankBranch" />
+    <result column="user_saro_number" jdbcType="DECIMAL" property="userSaroNumber" />
+    <result column="recharge_unit_price" jdbcType="DECIMAL" property="rechargeUnitPrice" />
+    <result column="recovery_unit_price" jdbcType="DECIMAL" property="recoveryUnitPrice" />
+    <result column="min_recharge" jdbcType="DECIMAL" property="minRecharge" />
+    <result column="max_recharge" jdbcType="DECIMAL" property="maxRecharge" />
+    <result column="user_access_token" jdbcType="VARCHAR" property="userAccessToken" />
+    <result column="user_trans_pwd" jdbcType="VARCHAR" property="userTransPwd" />
+    <result column="user_sec" jdbcType="VARCHAR" property="userSec" />
+    <result column="user_trans_pwd_error_count" jdbcType="INTEGER" property="userTransPwdErrorCount" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    user_id, user_token, user_name, user_account, nickname, user_phone, user_phone2,
+    user_phone3, user_status, user_role, bank_favour, user_bank, user_bank_card, user_bank_branch, 
+    user_saro_number, recharge_unit_price, recovery_unit_price, min_recharge, max_recharge, 
+    user_access_token, user_trans_pwd, user_sec, user_trans_pwd_error_count, create_time, 
+    update_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from penguins_user
+    where user_id = #{userId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from penguins_user
+    where user_id = #{userId,jdbcType=VARCHAR}
+  </delete>
+  <delete id="delUserToken">
+    update penguins_user
+    set user_token = ''
+    where user_id = #{userId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" keyColumn="user_id" keyProperty="userId" parameterType="com.penguin.website.model.domain.PenguinsUser" useGeneratedKeys="true">
+    insert into penguins_user (user_id,user_token, user_name, user_account,
+      nickname, user_phone, user_phone2,
+      user_phone3, user_status, user_role,
+      bank_favour, user_bank, user_bank_card,
+      user_bank_branch, user_saro_number, recharge_unit_price,
+      recovery_unit_price, min_recharge, max_recharge,
+      user_access_token, user_trans_pwd, user_sec,
+      user_trans_pwd_error_count, create_time, update_time
+      )
+    values (#{userId,jdbcType=VARCHAR},#{userToken,jdbcType=VARCHAR}, #{userName,jdbcType=VARCHAR}, #{userAccount,jdbcType=VARCHAR},
+      #{nickname,jdbcType=VARCHAR}, #{userPhone,jdbcType=VARCHAR}, #{userPhone2,jdbcType=VARCHAR},
+      #{userPhone3,jdbcType=VARCHAR}, #{userStatus,jdbcType=INTEGER}, #{userRole,jdbcType=INTEGER},
+      #{bankFavour,jdbcType=VARCHAR}, #{userBank,jdbcType=VARCHAR}, #{userBankCard,jdbcType=VARCHAR},
+      #{userBankBranch,jdbcType=VARCHAR}, #{userSaroNumber,jdbcType=DECIMAL}, #{rechargeUnitPrice,jdbcType=DECIMAL},
+      #{recoveryUnitPrice,jdbcType=DECIMAL}, #{minRecharge,jdbcType=DECIMAL}, #{maxRecharge,jdbcType=DECIMAL},
+      #{userAccessToken,jdbcType=VARCHAR}, #{userTransPwd,jdbcType=VARCHAR}, #{userSec,jdbcType=VARCHAR},
+      #{userTransPwdErrorCount,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" keyColumn="user_id" keyProperty="userId" parameterType="com.penguin.website.model.domain.PenguinsUser" useGeneratedKeys="true">
+    insert into penguins_user
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="userToken != null">
+        user_token,
+      </if>
+      <if test="userName != null">
+        user_name,
+      </if>
+      <if test="userAccount != null">
+        user_account,
+      </if>
+      <if test="nickname != null">
+        nickname,
+      </if>
+      <if test="userPhone != null">
+        user_phone,
+      </if>
+      <if test="userPhone2 != null">
+        user_phone2,
+      </if>
+      <if test="userPhone3 != null">
+        user_phone3,
+      </if>
+      <if test="userStatus != null">
+        user_status,
+      </if>
+      <if test="userRole != null">
+        user_role,
+      </if>
+      <if test="bankFavour != null">
+        bank_favour,
+      </if>
+      <if test="userBank != null">
+        user_bank,
+      </if>
+      <if test="userBankCard != null">
+        user_bank_card,
+      </if>
+      <if test="userBankBranch != null">
+        user_bank_branch,
+      </if>
+      <if test="userSaroNumber != null">
+        user_saro_number,
+      </if>
+      <if test="rechargeUnitPrice != null">
+        recharge_unit_price,
+      </if>
+      <if test="recoveryUnitPrice != null">
+        recovery_unit_price,
+      </if>
+      <if test="minRecharge != null">
+        min_recharge,
+      </if>
+      <if test="maxRecharge != null">
+        max_recharge,
+      </if>
+      <if test="userAccessToken != null">
+        user_access_token,
+      </if>
+      <if test="userTransPwd != null">
+        user_trans_pwd,
+      </if>
+      <if test="userSec != null">
+        user_sec,
+      </if>
+      <if test="userTransPwdErrorCount != null">
+        user_trans_pwd_error_count,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="userToken != null">
+        #{userToken,jdbcType=VARCHAR},
+      </if>
+      <if test="userName != null">
+        #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="userAccount != null">
+        #{userAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="nickname != null">
+        #{nickname,jdbcType=VARCHAR},
+      </if>
+      <if test="userPhone != null">
+        #{userPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="userPhone2 != null">
+        #{userPhone2,jdbcType=VARCHAR},
+      </if>
+      <if test="userPhone3 != null">
+        #{userPhone3,jdbcType=VARCHAR},
+      </if>
+      <if test="userStatus != null">
+        #{userStatus,jdbcType=INTEGER},
+      </if>
+      <if test="userRole != null">
+        #{userRole,jdbcType=INTEGER},
+      </if>
+      <if test="bankFavour != null">
+        #{bankFavour,jdbcType=VARCHAR},
+      </if>
+      <if test="userBank != null">
+        #{userBank,jdbcType=VARCHAR},
+      </if>
+      <if test="userBankCard != null">
+        #{userBankCard,jdbcType=VARCHAR},
+      </if>
+      <if test="userBankBranch != null">
+        #{userBankBranch,jdbcType=VARCHAR},
+      </if>
+      <if test="userSaroNumber != null">
+        #{userSaroNumber,jdbcType=DECIMAL},
+      </if>
+      <if test="rechargeUnitPrice != null">
+        #{rechargeUnitPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="recoveryUnitPrice != null">
+        #{recoveryUnitPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="minRecharge != null">
+        #{minRecharge,jdbcType=DECIMAL},
+      </if>
+      <if test="maxRecharge != null">
+        #{maxRecharge,jdbcType=DECIMAL},
+      </if>
+      <if test="userAccessToken != null">
+        #{userAccessToken,jdbcType=VARCHAR},
+      </if>
+      <if test="userTransPwd != null">
+        #{userTransPwd,jdbcType=VARCHAR},
+      </if>
+      <if test="userSec != null">
+        #{userSec,jdbcType=VARCHAR},
+      </if>
+      <if test="userTransPwdErrorCount != null">
+        #{userTransPwdErrorCount,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.penguin.website.model.domain.PenguinsUser">
+    update penguins_user
+    <set>
+      <if test="userToken != null">
+        user_token = #{userToken,jdbcType=VARCHAR},
+      </if>
+      <if test="userName != null">
+        user_name = #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="userAccount != null">
+        user_account = #{userAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="nickname != null">
+        nickname = #{nickname,jdbcType=VARCHAR},
+      </if>
+      <if test="userPhone != null">
+        user_phone = #{userPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="userPhone2 != null">
+        user_phone2 = #{userPhone2,jdbcType=VARCHAR},
+      </if>
+      <if test="userPhone3 != null">
+        user_phone3 = #{userPhone3,jdbcType=VARCHAR},
+      </if>
+      <if test="userStatus != null">
+        user_status = #{userStatus,jdbcType=INTEGER},
+      </if>
+      <if test="userRole != null">
+        user_role = #{userRole,jdbcType=INTEGER},
+      </if>
+      <if test="bankFavour != null">
+        bank_favour = #{bankFavour,jdbcType=VARCHAR},
+      </if>
+      <if test="userBank != null">
+        user_bank = #{userBank,jdbcType=VARCHAR},
+      </if>
+      <if test="userBankCard != null">
+        user_bank_card = #{userBankCard,jdbcType=VARCHAR},
+      </if>
+      <if test="userBankBranch != null">
+        user_bank_branch = #{userBankBranch,jdbcType=VARCHAR},
+      </if>
+      <if test="userSaroNumber != null">
+        user_saro_number = #{userSaroNumber,jdbcType=DECIMAL},
+      </if>
+      <if test="rechargeUnitPrice != null">
+        recharge_unit_price = #{rechargeUnitPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="recoveryUnitPrice != null">
+        recovery_unit_price = #{recoveryUnitPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="minRecharge != null">
+        min_recharge = #{minRecharge,jdbcType=DECIMAL},
+      </if>
+      <if test="maxRecharge != null">
+        max_recharge = #{maxRecharge,jdbcType=DECIMAL},
+      </if>
+      <if test="userAccessToken != null">
+        user_access_token = #{userAccessToken,jdbcType=VARCHAR},
+      </if>
+      <if test="userTransPwd != null">
+        user_trans_pwd = #{userTransPwd,jdbcType=VARCHAR},
+      </if>
+      <if test="userSec != null">
+        user_sec = #{userSec,jdbcType=VARCHAR},
+      </if>
+      <if test="userTransPwdErrorCount != null">
+        user_trans_pwd_error_count = #{userTransPwdErrorCount,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where user_id = #{userId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.penguin.website.model.domain.PenguinsUser">
+    update penguins_user
+    set user_token = #{userToken,jdbcType=VARCHAR},
+      user_name = #{userName,jdbcType=VARCHAR},
+      user_account = #{userAccount,jdbcType=VARCHAR},
+      nickname = #{nickname,jdbcType=VARCHAR},
+      user_phone = #{userPhone,jdbcType=VARCHAR},
+      user_phone2 = #{userPhone2,jdbcType=VARCHAR},
+      user_phone3 = #{userPhone3,jdbcType=VARCHAR},
+      user_status = #{userStatus,jdbcType=INTEGER},
+      user_role = #{userRole,jdbcType=INTEGER},
+      bank_favour = #{bankFavour,jdbcType=VARCHAR},
+      user_bank = #{userBank,jdbcType=VARCHAR},
+      user_bank_card = #{userBankCard,jdbcType=VARCHAR},
+      user_bank_branch = #{userBankBranch,jdbcType=VARCHAR},
+      user_saro_number = #{userSaroNumber,jdbcType=DECIMAL},
+      recharge_unit_price = #{rechargeUnitPrice,jdbcType=DECIMAL},
+      recovery_unit_price = #{recoveryUnitPrice,jdbcType=DECIMAL},
+      min_recharge = #{minRecharge,jdbcType=DECIMAL},
+      max_recharge = #{maxRecharge,jdbcType=DECIMAL},
+      user_access_token = #{userAccessToken,jdbcType=VARCHAR},
+      user_trans_pwd = #{userTransPwd,jdbcType=VARCHAR},
+      user_sec = #{userSec,jdbcType=VARCHAR},
+      user_trans_pwd_error_count = #{userTransPwdErrorCount,jdbcType=INTEGER},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP}
+    where user_id = #{userId,jdbcType=VARCHAR}
+  </update>
+
+  <select id="selectByAccessToken" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from penguins_user
+    where user_access_token = #{userAccessToken,jdbcType=VARCHAR} ORDER BY create_time DESC LIMIT 1
+  </select>
+
+  <select id="selectUserListByModel" parameterType="com.penguin.website.bean.req.ReqUserPage" resultMap="BaseResultMap">
+    SELECT
+    <include refid="Base_Column_List" />
+    FROM penguins_user
+    WHERE user_status != -1
+    <if test="userName != null and userName != ''">
+      AND user_name = #{userName,jdbcType=VARCHAR}
+    </if>
+    <if test="userAccount != null and userAccount != ''">
+      AND user_name like concat('%',#{userAccount,jdbcType=VARCHAR},'%')
+    </if>
+    <if test="userPhone != null and userPhone != ''">
+      AND user_name = #{userPhone,jdbcType=VARCHAR}
+    </if>
+    <if test="userStatus != null and userStatus != ''">
+      AND user_status = #{userStatus,jdbcType=INTEGER}
+    </if>
+    <if test="userRole != null and userRole != ''">
+      AND user_role = #{userRole,jdbcType=INTEGER}
+    </if>
+    order by create_time desc
+    <if test="page != null and size != null and size != ''">
+      LIMIT #{page,jdbcType=INTEGER},#{size,jdbcType=INTEGER}
+    </if>
+  </select>
+
+  <select id="selectUserCount" parameterType="com.penguin.website.bean.req.ReqUserPage" resultType="java.lang.Integer">
+    SELECT
+    COUNT(1)
+    FROM penguins_user
+    WHERE user_status != -1
+    <if test="userName != null and userName != ''">
+      AND user_name = #{userName,jdbcType=VARCHAR}
+    </if>
+    <if test="userAccount != null and userAccount != ''">
+      AND user_name like concat('%',#{userAccount,jdbcType=VARCHAR},'%')
+    </if>
+    <if test="userPhone != null and userPhone != ''">
+      AND user_phone = #{userPhone,jdbcType=VARCHAR}
+    </if>
+    <if test="userStatus != null and userStatus != ''">
+      AND user_status = #{userStatus,jdbcType=INTEGER}
+    </if>
+    <if test="userRole != null and userRole != ''">
+      AND user_role = #{userRole,jdbcType=INTEGER}
+    </if>
+  </select>
+
+</mapper>

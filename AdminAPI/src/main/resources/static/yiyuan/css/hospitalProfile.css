@@ -1,0 +1,65 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+ul,li {
+	list-style: none;
+}
+a {
+	text-decoration: none;
+}
+.hospitalProfile{
+		width: 100%;
+		height: auto;
+	}
+	.hospitalProfile main {
+		width: 100%;
+		height: auto;
+		display: flex;
+		justify-content: center;
+	}
+	.hospitalProfile main .margin .hospitalContent {
+		width: 98%;
+		margin: auto;
+		margin-top: 20px;
+		font-size: 18px;
+		color: #707070;
+		line-height: 32px;
+		margin-bottom: 20px;
+	}
+@media only screen and (min-width: 1200px) {
+	.hospitalProfile main .margin {
+		width: 1200px;
+		height: auto;
+	}
+	.hospitalProfile main .margin .hospitalTitle {
+		width: 100%;
+		height: 40px;
+		line-height: 20px;
+		background: url(../picture/download.jpg)no-repeat;
+		margin-top: 20px;
+		font-size: 20px;
+		color: #1288ca;
+		text-indent: 30px;
+		vertical-align: middle;
+	}
+	.hospitalProfile main .margin .hospitalMdtitle {
+		display: none;
+	}
+}
+@media only screen and (max-width: 1200px) {
+	.hospitalProfile main .margin {
+		width: 100%;
+	}
+	.hospitalProfile main .margin .hospitalTitle {
+		display: none;
+	}
+	.hospitalProfile main .margin .hospitalMdtitle {
+		width: 100%;
+		height: 40px;
+		line-height: 40px;
+		background: #1288ca;
+		color: #FFFFFF;
+		text-indent: 5px;
+	}
+}

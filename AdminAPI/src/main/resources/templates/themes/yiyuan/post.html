@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<div th:replace="themes/yiyuan/header::header('首页',null)"></div>
+
+<link rel="stylesheet" href="/static/yiyuan/layui/css/layui.css">
+<link rel="stylesheet" href="/static/yiyuan/css/research.css">
+</head>
+<body>
+<div class="research">
+    <!--头部-->
+    <div th:include="themes/yiyuan/top::top"></div>
+
+    <!--主题内容-->
+    <main>
+        <div class="margin">
+            <div class="researchTitle" th:text="${article.articleTitle}"></div>
+            <div class="researchTitley" th:text="${article.articleTitle}"></div>
+            <div class="researchContent" th:utext="${article.articleContent}">
+
+            </div>
+        </div>
+    </main>
+
+<div th:include="themes/yiyuan/footer::footer"></div>
+</div>
+
+</body>
+</html>

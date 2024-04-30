@@ -1,0 +1,17 @@
+.el-table {
+    .el-table__cell{
+        height: 6vh;
+        font-size: 14px;
+    }
+}
+
+
+
+.edit-class-one{
+    display: flex;
+    justify-content:space-evenly
+  }
+
+body .el-table th.gutter {
+    display: table-cell!important;
+}

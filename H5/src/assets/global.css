@@ -1,0 +1,74 @@
+* {
+  padding: 0%;
+  margin: 0;
+}
+a {
+  color: black;
+  text-decoration: none;
+  font-size: 0;
+}
+ul {
+  margin: 0;
+  padding: 0;
+}
+.van-key__wrapper .van-key {
+  font-size: 44px !important;
+  font-weight: bold !important;
+  background: #ffe7a8 !important;
+  border-radius: 0.053333rem !important;
+  box-shadow: 1px 2px 2px 0px #fff2c6 inset !important;
+  color: #5d3129 !important;
+  height: 1.44rem !important;
+}
+.van-popup {
+  height: 11rem !important;
+}
+.van-key__collapse-icon {
+  display: none !important;
+}
+.text-shadow {
+  text-shadow: 1px 1px 0px #5e3229, -1px -1px 0px #5e3229, 1px 1px 0px #5e3229,
+    -1px -1px 0px #5e3229, 1px 1px 0px #5e3229, -1px -1px 0px #5e3229;
+}
+.font-sizetw {
+  font-size: 0 !important;
+}
+.van-number-keyboard {
+  background-color: #ebbe7b;
+  box-sizing: border-box;
+  padding: 0.106667rem 0.033333rem 0.066667rem 0.093333rem;
+}
+.van-key__wrapper {
+  padding: 0 0.133333rem 0.133333rem 0;
+}
+.collection-backimg {
+  width: 100%;
+  height: 100%;
+  background-size: contain !important;
+  z-index: -10;
+  position: fixed;
+  background-image: url("../assets/home/vant-back.png") !important;
+}
+
+.van-password-input__item {
+  box-shadow: 0px 2px 2px #71674f inset,
+    0px -2px 0px rgba(113, 103, 79, 0.55) inset;
+  background: #d7c596 !important;
+  border: 2px solid #fff4d4 !important;
+}
+.van-password-input {
+  margin: 0 0.4rem;
+}
+.van-key__delete-icon {
+  width: 0.88rem !important;
+  height: 0.573333rem !important;
+}
+.Numberimg {
+  width: 100%;
+  height: 100%;
+  background-size: cover !important;
+  z-index: -10;
+  position: fixed;
+  background-image: url("../assets/home/back.png") !important;
+}
+

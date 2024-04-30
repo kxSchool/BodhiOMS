@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<div th:replace="themes/yiyuan/header::header('首页',null)"></div>
+
+<link rel="stylesheet" href="/static/yiyuan/layui/css/layui.css">
+<link rel="stylesheet" href="/static/yiyuan/css/contact.css">
+</head>
+<body>
+<div class="contact">
+    <!--头部-->
+    <div th:include="themes/yiyuan/top::top"></div>
+    <!--主题内容-->
+    <main>
+        <div class="margin">
+            <div class="margin">
+                <div class="contactTitle">联系我们</div>
+                <div class="contacttitley">Contac Us</div>
+                <div class="contactInformation">
+                    <div class="informationName">联系信息</div>
+                    <div class="contactinforList">
+                        <div class="contactListli">
+                            <img src="/static/yiyuan/picture/6EwvWEk7R_W3aozHicGjag.png"/>
+                            <span>上海市金山区漕廊公路2901号/201508</span>
+                        </div>
+                        <div class="contactListli">
+                            <img src="/static/yiyuan/picture/MOU_dB6aTmGmKv14jLlhrg.png"/>
+                            <span>021-37990333</span>
+                        </div>
+                        <div class="contactListli contanctActive" >
+                            <img src="/static/yiyuan/picture/mZHTFeqMQk6MAxGUB1iHOA.png"/>
+                            <span>021-57248782</span>
+                        </div>
+                    </div>
+                    <div class="informationName">交通线路</div>
+                    <div class="contactinforList">
+                        <div class="contactListlipc">
+                            <img src="/static/yiyuan/picture/ovazwkSKQ3adN4kn8FvU0Q.png" alt="">
+                            <div>
+                                <img src="/static/yiyuan/picture/jiantu.png" alt="">
+                                <p style="line-height:0px;margin-top: -20%;text-align: center;">石青专线/上石线</p>
+                            </div>
+                            <div>
+                                <img src="/static/yiyuan/picture/laihui.png" alt="">
+                                <p style="line-height:0px;margin-top: -20%;">亭卫公路漕廊公路站</p>
+                            </div>
+                            <div>
+                                <img src="/static/yiyuan/picture/jiantu.png" alt="">
+                                <p style="line-height:0px;margin-top: -20%;text-align: center;">亭卫公路漕廊公路站</p>
+                            </div>
+                        </div>
+                        <div class="contactListliyd">
+                            <img src="/static/yiyuan/picture/contactListliyd.jpg" alt="">
+                        </div>
+                    </div>
+                    <div class="informationName">地理位置</div>
+                    <div class="informationMap">
+                        <img src="/static/yiyuan/picture/微信图片_20200602155348.png" alt="">
+                    </div>
+                </div>
+            </div>
+    </main>
+<div th:include="themes/yiyuan/footer::footer"></div>
+</div>
+</body>
+</html>

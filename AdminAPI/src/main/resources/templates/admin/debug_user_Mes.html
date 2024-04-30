@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:thSys="">
+<div th:replace="admin/module/macros :: head('游戏接口调试')"></div>
+<body class="app sidebar-mini rtl">
+<main class="app-content">
+    <div th:replace="admin/module/macros :: header"></div>
+    <div th:replace="admin/module/macros :: sidebar"></div>
+    <div class="tile mb-4">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="page-header">
+                    <h2 class="mb-3 line-head" id="navs">游戏接口调试</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row" style="margin-bottom: 2rem;">
+            <div class="col-lg-12">
+                <div class="bs-component">
+                    <ul class="nav nav-tabs">
+                        <li class="nav-item"><a class="nav-link active"
+                                                data-toggle="tab" href="#getMes">获取短信</a></li>
+                        <li class="nav-item"><a class="nav-link" data-toggle="tab"
+                                                href="#checkMes">短信校验</a></li>
+                    </ul>
+                    <div class="tab-content" id="myTabContent">
+                        <div class="tab-pane fade active show col-lg-12" id="getMes">
+                            <form class="form-horizontal" id="dataFrom" autocomplete="off">
+                                <input class="form-control" type="hidden" name="userId">
+                                <div class="form-group row mt-3">
+                                    <label class="control-label col-md-1">phone：</label>
+                                    <div class="col-md-8">
+                                        <input class="form-control" type="text" id="phone">
+                                    </div>
+                                </div>
+                                <div class="tile-footer">
+                                    <div class="row">
+                                        <div class="col-md-8 col-md-offset-3">
+                                            <button class="btn btn-sm btn-outline-primary" type="button"
+                                                    onclick="getMes()">
+                                                <i class="fa fa-fw fa-lg fa-check-circle"></i>提交
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                            <div class="tile-footer"></div>
+                            <form class="form-horizontal col-md-12" id="" autocomplete="off">
+                                <div class="form-group row">
+                                    <label class="control-label col-md-12">接口返回：</label>
+                                    <div class="col-md-12">
+                                        <div class="input-group">
+											<textarea class="form-control"
+                                                      rows="30" id="dataRspFrom"
+                                                      name="dataRspFrom" style="resize: none"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="tab-pane fade col-lg-12" id="checkMes">
+                            <form class="form-horizontal" id="merchantsFrom" autocomplete="off">
+                                <input class="form-control" type="hidden"
+                                       id="userId" name="userId">
+                                <div class="form-group row mt-3">
+                                    <label class="control-label col-md-1">phone：</label>
+                                    <div class="col-md-8">
+                                        <input class="form-control" type="text" id="phone2">
+                                    </div>
+                                </div>
+                                <div class="form-group row mt-3">
+                                    <label class="control-label col-md-1">code：</label>
+                                    <div class="col-md-8">
+                                        <input class="form-control" type="text" id="code">
+                                    </div>
+                                </div>
+                                <div class="tile-footer">
+                                    <div class="row">
+                                        <div class="col-md-8 col-md-offset-3">
+                                            <button class="btn btn-sm btn-outline-primary" type="button"
+                                                    onclick="checkMes()">
+                                                <i class="fa fa-fw fa-lg fa-check-circle"></i>提交
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                            <div class="tile-footer"></div>
+                            <form class="form-horizontal col-md-12" id="merchantsFrom2" autocomplete="off">
+                                <div class="form-group row">
+                                    <label class="control-label col-md-12">接口返回：</label>
+                                    <div class="col-md-12">
+                                        <div class="input-group">
+											<textarea class="form-control"
+                                                      rows="30" id="checkMesRspFrom"
+                                                      name="checkMesRspFrom" style="resize: none"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<div th:replace="admin/module/macros :: comm"></div>
+<script src="/plugins/layer/layer.js"></script>
+<script src="/js/common.js"></script>
+<script type="text/javascript">
+    //保存资料
+    function getMes() {
+        var phone=$('#phone').val();
+        var params;
+        params={"phone":phone};
+        params=JSON.stringify(params);
+        var data=ajaxRequest("POST","/external/debug/sendOtp",params);
+        if(data!=null){
+            $('#dataRspFrom').val(JSON.stringify(JSON.parse(JSON.stringify(data)),null,2));
+        }else{
+            alert("请求异常！");
+        }
+    }
+
+    function checkMes(){
+        var phone=$('#phone').val();
+        var code=$('#code').val();
+        var params;
+        params={"phone":phone,"code":code};
+        params=JSON.stringify(params);
+        var data=ajaxRequest("POST","/external/debug/checkSendOtp",params);
+        if(data!=null){
+            $('#checkMesRspFrom').val(JSON.stringify(JSON.parse(JSON.stringify(data)),null,2));
+        }else{
+            alert("请求异常！");
+        }
+    }
+
+</script>
+</body>
+</html>

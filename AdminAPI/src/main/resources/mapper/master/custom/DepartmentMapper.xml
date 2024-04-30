@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.penguin.website.mapper.master.custom.DepartmentMapper">
+
+	<resultMap id="BaseResultMap" type="com.penguin.website.model.domain.Departments">
+		<id property="did" javaType="INTEGER" column="did"></id>
+		<result property="departmentName" jdbcType="VARCHAR" column="department_name"></result>
+		<result property="parentId" jdbcType="INTEGER" column="parent_id"></result>
+		<result property="disable" jdbcType="INTEGER" column="disable"></result>
+	</resultMap>
+
+	<resultMap id="ResultMap" type="com.penguin.website.model.domain.President">
+		<id property="presidentId" javaType="INTEGER" column="president_id"></id>
+		<result property="presidentName" jdbcType="VARCHAR" column="president_name"></result>
+		<result property="presidentType" jdbcType="VARCHAR" column="president_type"></result>
+		<result property="presidentSummary" jdbcType="VARCHAR" column="president_summary"></result>
+		<result property="imageUrl" jdbcType="VARCHAR" column="image_url"></result>
+		<result property="presidentContent" jdbcType="VARCHAR" column="president_content"></result>
+		<result property="creationTime" jdbcType="VARCHAR" column="creation_time"></result>
+		<result property="disable" jdbcType="INTEGER" column="disable"></result>
+
+	</resultMap>
+
+	<sql id="Base_Column_List">
+		did, department_name, parent_id, disable
+	</sql>
+
+	<select id="getAll" resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from penguin_departments
+	</select>
+
+	<select id="getDepartmentId" parameterType="java.lang.Integer" resultType="com.penguin.website.model.domain.DepartmetsDesc">
+		select did,departmentsconten,departmentsimg from penguin_departments_desc
+		<where>
+			<if test="departmentId != null">
+				did=#{departmentId};
+			</if>
+		</where>
+	</select>
+
+	<select id="getPresidentAll" resultMap="ResultMap">
+		select president_id,president_name,president_type,president_summary,image_url,president_content,creation_time,disable from penguin_president
+		order by creation_time desc
+	</select>
+
+	<select id="getPresidentById" resultMap="ResultMap">
+		select president_id,president_name,president_type,president_summary,image_url,president_content,creation_time,disable from penguin_president
+		where president_id = #{presidentId};
+	</select>
+
+</mapper>

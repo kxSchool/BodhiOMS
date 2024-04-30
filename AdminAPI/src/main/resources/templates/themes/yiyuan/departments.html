@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<div th:replace="themes/yiyuan/header::header('首页',null)"></div>
+
+<link rel="stylesheet" href="/static/yiyuan/layui/css/layui.css">
+<link rel="stylesheet" href="/static/yiyuan/css/departments.css">
+</head>
+<body>
+<div class="departments">
+    <!--头部-->
+    <div th:include="themes/yiyuan/top::top"></div>
+    <main>
+        <div class="margin">
+            <div class="departmentsLeft">
+                <div class="leftTop">
+                    <p class="departmentsNamez">学科介绍</p>
+                    <p class="departmentsNameY">DISCIPLINE INTRODUCTION</p>
+                </div>
+                <div class="leftTopY">
+                    departments
+                </div>
+                <ul class="departmentsUl"></ul>
+                <ul class="departmentsUlYD"></ul>
+            </div>
+            <div class="departmentsRight">
+                <div class="departmentsTitle">外科系列</div>
+                <div class="departmentshtml">
+                </div>
+            </div>
+        </div>
+    </main>
+<div th:include="themes/yiyuan/footer::footer"></div>
+</div>
+<script>
+    /*导入头部和尾部*/
+    $(document).ready(function(){
+        var departmentsUl = [
+            {
+                id: 0,
+                departmentsName: '外科系列',
+                departmentsList:[
+                    {
+                        ids:0,
+                        departmentsListname: '神经外科',
+                        departmentsItem: {
+                            departmentsconten: '上海市公共卫生临床中心神经外科是以诊疗颅内肿瘤、脑血管病、颅内先天性疾病、脊髓疾病及周围神经系统疾病和颅脑损伤为主的专业科室，现有主任医师1名、副主任医师1名、主治医师2名，同时拥有一支训练有素的护理团队。自成立以来，神经外科逐渐成长进步，已经成为可以承担医疗、科研的神经疾病专科。我们的治疗范围覆盖全部神经系统疾病，我们是中国感染相关神经外科最佳中心之一。我们很幸运能够拥有世界上最好的手术治疗设备和最好的科学研究设备，帮助我们治疗成人和儿科患者的感染性相关神经疾病。另外，我们的医院提供上海唯一的感染相关颅脑创伤救治服务，我们的隐球菌脑炎治疗和研究计划是第一个神经外科和感染科联合进行治疗和研究的多学科项目，已经在相关学会上发表《隐球菌脑积水手术治疗的专家共识》',
+                            departmentsimg: '/static/yiyuan/picture/9e8c28179d1cd4719b6b6f61859a4d1.png'
+                        }
+                    },
+                    {
+                        ids:1,
+                        departmentsListname: '神经外科',
+                        departmentsItem: {
+                            departmentsconten: '上海市公共卫生临床中心神经外科是以诊疗颅内肿瘤、脑血管病、颅内先天性疾病、脊髓疾病及周围神经系统疾病和颅脑损伤为主的专业科室，现有主任医师1名、副主任医师1名、主治医师2名，同时拥有一支训练有素的护理团队。自成立以来，神经外科逐渐成长进步，已经成为可以承担医疗、科研的神经疾病专科。我们的治疗范围覆盖全部神经系统疾病，我们是中国感染相关神经外科最佳中心之一。我们很幸运能够拥有世界上最好的手术治疗设备和最好的科学研究设备，帮助我们治疗成人和儿科患者的感染性相关神经疾病。另外，我们的医院提供上海唯一的感染相关颅脑创伤救治服务，我们的隐球菌脑炎治疗和研究计划是第一个神经外科和感染科联合进行治疗和研究的多学科项目，已经在相关学会上发表《隐球菌脑积水手术治疗的专家共识》',
+                            departmentsimg: '/static/yiyuan/picture/9e8c28179d1cd4719b6b6f61859a4d1.png'
+                        }
+                    },
+                    {
+                        ids:2,
+                        departmentsListname: '神经外科',
+                        departmentsItem: {
+                            departmentsconten: '上海市公共卫生临床中心神经外科是以诊疗颅内肿瘤、脑血管病、颅内先天性疾病、脊髓疾病及周围神经系统疾病和颅脑损伤为主的专业科室，现有主任医师1名、副主任医师1名、主治医师2名，同时拥有一支训练有素的护理团队。自成立以来，神经外科逐渐成长进步，已经成为可以承担医疗、科研的神经疾病专科。我们的治疗范围覆盖全部神经系统疾病，我们是中国感染相关神经外科最佳中心之一。我们很幸运能够拥有世界上最好的手术治疗设备和最好的科学研究设备，帮助我们治疗成人和儿科患者的感染性相关神经疾病。另外，我们的医院提供上海唯一的感染相关颅脑创伤救治服务，我们的隐球菌脑炎治疗和研究计划是第一个神经外科和感染科联合进行治疗和研究的多学科项目，已经在相关学会上发表《隐球菌脑积水手术治疗的专家共识》',
+                            departmentsimg: '/static/yiyuan/picture/9e8c28179d1cd4719b6b6f61859a4d1.png'
+                        }
+                    },
+                    {
+                        ids:3,
+                        departmentsListname: '神经外科',
+                        departmentsItem: {
+                            departmentsconten: '上海市公共卫生临床中心神经外科是以诊疗颅内肿瘤、脑血管病、颅内先天性疾病、脊髓疾病及周围神经系统疾病和颅脑损伤为主的专业科室，现有主任医师1名、副主任医师1名、主治医师2名，同时拥有一支训练有素的护理团队。自成立以来，神经外科逐渐成长进步，已经成为可以承担医疗、科研的神经疾病专科。我们的治疗范围覆盖全部神经系统疾病，我们是中国感染相关神经外科最佳中心之一。我们很幸运能够拥有世界上最好的手术治疗设备和最好的科学研究设备，帮助我们治疗成人和儿科患者的感染性相关神经疾病。另外，我们的医院提供上海唯一的感染相关颅脑创伤救治服务，我们的隐球菌脑炎治疗和研究计划是第一个神经外科和感染科联合进行治疗和研究的多学科项目，已经在相关学会上发表《隐球菌脑积水手术治疗的专家共识》',
+                            departmentsimg: '/static/yiyuan/picture/9e8c28179d1cd4719b6b6f61859a4d1.png'
+                        }
+                    },
+                    {
+                        ids:4,
+                        departmentsListname: '神经外科',
+                        departmentsItem: {
+                            departmentsconten: '上海市公共卫生临床中心神经外科是以诊疗颅内肿瘤、脑血管病、颅内先天性疾病、脊髓疾病及周围神经系统疾病和颅脑损伤为主的专业科室，现有主任医师1名、副主任医师1名、主治医师2名，同时拥有一支训练有素的护理团队。自成立以来，神经外科逐渐成长进步，已经成为可以承担医疗、科研的神经疾病专科。我们的治疗范围覆盖全部神经系统疾病，我们是中国感染相关神经外科最佳中心之一。我们很幸运能够拥有世界上最好的手术治疗设备和最好的科学研究设备，帮助我们治疗成人和儿科患者的感染性相关神经疾病。另外，我们的医院提供上海唯一的感染相关颅脑创伤救治服务，我们的隐球菌脑炎治疗和研究计划是第一个神经外科和感染科联合进行治疗和研究的多学科项目，已经在相关学会上发表《隐球菌脑积水手术治疗的专家共识》',
+                            departmentsimg: '/static/yiyuan/picture/9e8c28179d1cd4719b6b6f61859a4d1.png'
+                        }
+                    }
+                ]
+            },
+            {
+                id: 1,
+                departmentsName: '内科系列',
+                departmentsList:[
+                    {
+                        ids:0,
+                        departmentsListname: '心内科',
+                        departmentsItem: {
+                            departmentsconten: '上海市公共卫生临床中心神经外科是以诊疗颅内肿瘤、脑血管病、颅内先天性疾病、脊髓疾病及周围神经系统疾病和颅脑损伤为主的专业科室，现有主任医师1名、副主任医师1名、主治医师2名，同时拥有一支训练有素的护理团队。自成立以来，神经外科逐渐成长进步，已经成为可以承担医疗、科研的神经疾病专科。我们的治疗范围覆盖全部神经系统疾病，我们是中国感染相关神经外科最佳中心之一。我们很幸运能够拥有世界上最好的手术治疗设备和最好的科学研究设备，帮助我们治疗成人和儿科患者的感染性相关神经疾病。另外，我们的医院提供上海唯一的感染相关颅脑创伤救治服务，我们的隐球菌脑炎治疗和研究计划是第一个神经外科和感染科联合进行治疗和研究的多学科项目，已经在相关学会上发表《隐球菌脑积水手术治疗的专家共识》',
+                            departmentsimg: '/static/yiyuan/picture/9e8c28179d1cd4719b6b6f61859a4d1.png'
+                        }
+                    },
+                    {
+                        ids:1,
+                        departmentsListname: '心内科',
+                        departmentsItem: {
+                            departmentsconten: '上海市公共卫生临床中心神经外科是以诊疗颅内肿瘤、脑血管病、颅内先天性疾病、脊髓疾病及周围神经系统疾病和颅脑损伤为主的专业科室，现有主任医师1名、副主任医师1名、主治医师2名，同时拥有一支训练有素的护理团队。自成立以来，神经外科逐渐成长进步，已经成为可以承担医疗、科研的神经疾病专科。我们的治疗范围覆盖全部神经系统疾病，我们是中国感染相关神经外科最佳中心之一。我们很幸运能够拥有世界上最好的手术治疗设备和最好的科学研究设备，帮助我们治疗成人和儿科患者的感染性相关神经疾病。另外，我们的医院提供上海唯一的感染相关颅脑创伤救治服务，我们的隐球菌脑炎治疗和研究计划是第一个神经外科和感染科联合进行治疗和研究的多学科项目，已经在相关学会上发表《隐球菌脑积水手术治疗的专家共识》',
+                            departmentsimg: '/static/yiyuan/picture/9e8c28179d1cd4719b6b6f61859a4d1.png'
+                        }
+                    },
+                    {
+                        ids:2,
+                        departmentsListname: '心内科',
+                        departmentsItem: {
+                            departmentsconten: '上海市公共卫生临床中心神经外科是以诊疗颅内肿瘤、脑血管病、颅内先天性疾病、脊髓疾病及周围神经系统疾病和颅脑损伤为主的专业科室，现有主任医师1名、副主任医师1名、主治医师2名，同时拥有一支训练有素的护理团队。自成立以来，神经外科逐渐成长进步，已经成为可以承担医疗、科研的神经疾病专科。我们的治疗范围覆盖全部神经系统疾病，我们是中国感染相关神经外科最佳中心之一。我们很幸运能够拥有世界上最好的手术治疗设备和最好的科学研究设备，帮助我们治疗成人和儿科患者的感染性相关神经疾病。另外，我们的医院提供上海唯一的感染相关颅脑创伤救治服务，我们的隐球菌脑炎治疗和研究计划是第一个神经外科和感染科联合进行治疗和研究的多学科项目，已经在相关学会上发表《隐球菌脑积水手术治疗的专家共识》',
+                            departmentsimg: '/static/yiyuan/picture/9e8c28179d1cd4719b6b6f61859a4d1.png'
+                        }
+                    },
+                    {
+                        ids:3,
+                        departmentsListname: '心内科',
+                        departmentsItem: {
+                            departmentsconten: '上海市公共卫生临床中心神经外科是以诊疗颅内肿瘤、脑血管病、颅内先天性疾病、脊髓疾病及周围神经系统疾病和颅脑损伤为主的专业科室，现有主任医师1名、副主任医师1名、主治医师2名，同时拥有一支训练有素的护理团队。自成立以来，神经外科逐渐成长进步，已经成为可以承担医疗、科研的神经疾病专科。我们的治疗范围覆盖全部神经系统疾病，我们是中国感染相关神经外科最佳中心之一。我们很幸运能够拥有世界上最好的手术治疗设备和最好的科学研究设备，帮助我们治疗成人和儿科患者的感染性相关神经疾病。另外，我们的医院提供上海唯一的感染相关颅脑创伤救治服务，我们的隐球菌脑炎治疗和研究计划是第一个神经外科和感染科联合进行治疗和研究的多学科项目，已经在相关学会上发表《隐球菌脑积水手术治疗的专家共识》',
+                            departmentsimg: '/static/yiyuan/picture/9e8c28179d1cd4719b6b6f61859a4d1.png'
+                        }
+                    },
+                    {
+                        ids:4,
+                        departmentsListname: '心内科',
+                        departmentsItem: {
+                            departmentsconten: '上海市公共卫生临床中心神经外科是以诊疗颅内肿瘤、脑血管病、颅内先天性疾病、脊髓疾病及周围神经系统疾病和颅脑损伤为主的专业科室，现有主任医师1名、副主任医师1名、主治医师2名，同时拥有一支训练有素的护理团队。自成立以来，神经外科逐渐成长进步，已经成为可以承担医疗、科研的神经疾病专科。我们的治疗范围覆盖全部神经系统疾病，我们是中国感染相关神经外科最佳中心之一。我们很幸运能够拥有世界上最好的手术治疗设备和最好的科学研究设备，帮助我们治疗成人和儿科患者的感染性相关神经疾病。另外，我们的医院提供上海唯一的感染相关颅脑创伤救治服务，我们的隐球菌脑炎治疗和研究计划是第一个神经外科和感染科联合进行治疗和研究的多学科项目，已经在相关学会上发表《隐球菌脑积水手术治疗的专家共识》',
+                            departmentsimg: '/static/yiyuan/picture/9e8c28179d1cd4719b6b6f61859a4d1.png'
+                        }
+                    }
+                ]
+            },
+            {
+                id: 2,
+                departmentsName: '妇产科',
+                departmentsList:[
+                    {
+                        ids:0,
+                        departmentsListname: '妇产科',
+                        departmentsItem: {
+                            departmentsconten: '上海市公共卫生临床中心神经外科是以诊疗颅内肿瘤、脑血管病、颅内先天性疾病、脊髓疾病及周围神经系统疾病和颅脑损伤为主的专业科室，现有主任医师1名、副主任医师1名、主治医师2名，同时拥有一支训练有素的护理团队。自成立以来，神经外科逐渐成长进步，已经成为可以承担医疗、科研的神经疾病专科。我们的治疗范围覆盖全部神经系统疾病，我们是中国感染相关神经外科最佳中心之一。我们很幸运能够拥有世界上最好的手术治疗设备和最好的科学研究设备，帮助我们治疗成人和儿科患者的感染性相关神经疾病。另外，我们的医院提供上海唯一的感染相关颅脑创伤救治服务，我们的隐球菌脑炎治疗和研究计划是第一个神经外科和感染科联合进行治疗和研究的多学科项目，已经在相关学会上发表《隐球菌脑积水手术治疗的专家共识》',
+                            departmentsimg: '/static/yiyuan/picture/9e8c28179d1cd4719b6b6f61859a4d1.png'
+                        }
+                    }
+                ]
+            },
+            {
+                id: 3,
+                departmentsName: '儿科',
+                departmentsList:[
+                    {
+                        ids:0,
+                        departmentsListname: '儿科',
+                        departmentsItem: {
+                            departmentsconten: '上海市公共卫生临床中心神经外科是以诊疗颅内肿瘤、脑血管病、颅内先天性疾病、脊髓疾病及周围神经系统疾病和颅脑损伤为主的专业科室，现有主任医师1名、副主任医师1名、主治医师2名，同时拥有一支训练有素的护理团队。自成立以来，神经外科逐渐成长进步，已经成为可以承担医疗、科研的神经疾病专科。我们的治疗范围覆盖全部神经系统疾病，我们是中国感染相关神经外科最佳中心之一。我们很幸运能够拥有世界上最好的手术治疗设备和最好的科学研究设备，帮助我们治疗成人和儿科患者的感染性相关神经疾病。另外，我们的医院提供上海唯一的感染相关颅脑创伤救治服务，我们的隐球菌脑炎治疗和研究计划是第一个神经外科和感染科联合进行治疗和研究的多学科项目，已经在相关学会上发表《隐球菌脑积水手术治疗的专家共识》',
+                            departmentsimg: '/static/yiyuan/picture/9e8c28179d1cd4719b6b6f61859a4d1.png'
+                        }
+                    }
+                ]
+            },
+            {
+                id: 4,
+                departmentsName: '五官科系',
+                departmentsList:[
+                    {
+                        ids:0,
+                        departmentsListname: '口腔科',
+                        departmentsItem: {
+                            departmentsconten: '上海市公共卫生临床中心神经外科是以诊疗颅内肿瘤、脑血管病、颅内先天性疾病、脊髓疾病及周围神经系统疾病和颅脑损伤为主的专业科室，现有主任医师1名、副主任医师1名、主治医师2名，同时拥有一支训练有素的护理团队。自成立以来，神经外科逐渐成长进步，已经成为可以承担医疗、科研的神经疾病专科。我们的治疗范围覆盖全部神经系统疾病，我们是中国感染相关神经外科最佳中心之一。我们很幸运能够拥有世界上最好的手术治疗设备和最好的科学研究设备，帮助我们治疗成人和儿科患者的感染性相关神经疾病。另外，我们的医院提供上海唯一的感染相关颅脑创伤救治服务，我们的隐球菌脑炎治疗和研究计划是第一个神经外科和感染科联合进行治疗和研究的多学科项目，已经在相关学会上发表《隐球菌脑积水手术治疗的专家共识》',
+                            departmentsimg: '/static/yiyuan/picture/9e8c28179d1cd4719b6b6f61859a4d1.png'
+                        }
+                    },
+                    {
+                        ids:1,
+                        departmentsListname: '眼耳鼻喉科',
+                        departmentsItem: {
+                            departmentsconten: '上海市公共卫生临床中心神经外科是以诊疗颅内肿瘤、脑血管病、颅内先天性疾病、脊髓疾病及周围神经系统疾病和颅脑损伤为主的专业科室，现有主任医师1名、副主任医师1名、主治医师2名，同时拥有一支训练有素的护理团队。自成立以来，神经外科逐渐成长进步，已经成为可以承担医疗、科研的神经疾病专科。我们的治疗范围覆盖全部神经系统疾病，我们是中国感染相关神经外科最佳中心之一。我们很幸运能够拥有世界上最好的手术治疗设备和最好的科学研究设备，帮助我们治疗成人和儿科患者的感染性相关神经疾病。另外，我们的医院提供上海唯一的感染相关颅脑创伤救治服务，我们的隐球菌脑炎治疗和研究计划是第一个神经外科和感染科联合进行治疗和研究的多学科项目，已经在相关学会上发表《隐球菌脑积水手术治疗的专家共识》',
+                            departmentsimg: '/static/yiyuan/picture/9e8c28179d1cd4719b6b6f61859a4d1.png'
+                        }
+                    }
+                ]
+            },
+            {
+                id: 5,
+                departmentsName: '医疗辅助科室',
+                departmentsList:[
+                    {
+                        ids:0,
+                        departmentsListname: '医疗辅助科室',
+                        departmentsItem: {
+                            departmentsconten: '上海市公共卫生临床中心神经外科是以诊疗颅内肿瘤、脑血管病、颅内先天性疾病、脊髓疾病及周围神经系统疾病和颅脑损伤为主的专业科室，现有主任医师1名、副主任医师1名、主治医师2名，同时拥有一支训练有素的护理团队。自成立以来，神经外科逐渐成长进步，已经成为可以承担医疗、科研的神经疾病专科。我们的治疗范围覆盖全部神经系统疾病，我们是中国感染相关神经外科最佳中心之一。我们很幸运能够拥有世界上最好的手术治疗设备和最好的科学研究设备，帮助我们治疗成人和儿科患者的感染性相关神经疾病。另外，我们的医院提供上海唯一的感染相关颅脑创伤救治服务，我们的隐球菌脑炎治疗和研究计划是第一个神经外科和感染科联合进行治疗和研究的多学科项目，已经在相关学会上发表《隐球菌脑积水手术治疗的专家共识》',
+                            departmentsimg: '/static/yiyuan/picture/9e8c28179d1cd4719b6b6f61859a4d1.png'
+                        }
+                    },
+                    {
+                        ids:1,
+                        departmentsListname: '医疗辅助科室',
+                        departmentsItem: {
+                            departmentsconten: '上海市公共卫生临床中心神经外科是以诊疗颅内肿瘤、脑血管病、颅内先天性疾病、脊髓疾病及周围神经系统疾病和颅脑损伤为主的专业科室，现有主任医师1名、副主任医师1名、主治医师2名，同时拥有一支训练有素的护理团队。自成立以来，神经外科逐渐成长进步，已经成为可以承担医疗、科研的神经疾病专科。我们的治疗范围覆盖全部神经系统疾病，我们是中国感染相关神经外科最佳中心之一。我们很幸运能够拥有世界上最好的手术治疗设备和最好的科学研究设备，帮助我们治疗成人和儿科患者的感染性相关神经疾病。另外，我们的医院提供上海唯一的感染相关颅脑创伤救治服务，我们的隐球菌脑炎治疗和研究计划是第一个神经外科和感染科联合进行治疗和研究的多学科项目，已经在相关学会上发表《隐球菌脑积水手术治疗的专家共识》',
+                            departmentsimg: '/static/yiyuan/picture/9e8c28179d1cd4719b6b6f61859a4d1.png'
+                        }
+                    },
+                    {
+                        ids:2,
+                        departmentsListname: '医疗辅助科室',
+                        departmentsItem: {
+                            departmentsconten: '上海市公共卫生临床中心神经外科是以诊疗颅内肿瘤、脑血管病、颅内先天性疾病、脊髓疾病及周围神经系统疾病和颅脑损伤为主的专业科室，现有主任医师1名、副主任医师1名、主治医师2名，同时拥有一支训练有素的护理团队。自成立以来，神经外科逐渐成长进步，已经成为可以承担医疗、科研的神经疾病专科。我们的治疗范围覆盖全部神经系统疾病，我们是中国感染相关神经外科最佳中心之一。我们很幸运能够拥有世界上最好的手术治疗设备和最好的科学研究设备，帮助我们治疗成人和儿科患者的感染性相关神经疾病。另外，我们的医院提供上海唯一的感染相关颅脑创伤救治服务，我们的隐球菌脑炎治疗和研究计划是第一个神经外科和感染科联合进行治疗和研究的多学科项目，已经在相关学会上发表《隐球菌脑积水手术治疗的专家共识》',
+                            departmentsimg: '/static/yiyuan/picture/9e8c28179d1cd4719b6b6f61859a4d1.png'
+                        }
+                    },
+                    {
+                        ids:3,
+                        departmentsListname: '医疗辅助科室',
+                        departmentsItem: {
+                            departmentsconten: '上海市公共卫生临床中心神经外科是以诊疗颅内肿瘤、脑血管病、颅内先天性疾病、脊髓疾病及周围神经系统疾病和颅脑损伤为主的专业科室，现有主任医师1名、副主任医师1名、主治医师2名，同时拥有一支训练有素的护理团队。自成立以来，神经外科逐渐成长进步，已经成为可以承担医疗、科研的神经疾病专科。我们的治疗范围覆盖全部神经系统疾病，我们是中国感染相关神经外科最佳中心之一。我们很幸运能够拥有世界上最好的手术治疗设备和最好的科学研究设备，帮助我们治疗成人和儿科患者的感染性相关神经疾病。另外，我们的医院提供上海唯一的感染相关颅脑创伤救治服务，我们的隐球菌脑炎治疗和研究计划是第一个神经外科和感染科联合进行治疗和研究的多学科项目，已经在相关学会上发表《隐球菌脑积水手术治疗的专家共识》',
+                            departmentsimg: '/static/yiyuan/picture/9e8c28179d1cd4719b6b6f61859a4d1.png'
+                        }
+                    }
+                ]
+            }
+        ]
+        var departmentsUlYD = [
+            {
+                ids:0,
+                departmentsListname: '神经外科'
+            },
+            {
+                ids:1,
+                departmentsListname: '神经外科'
+            },
+            {
+                ids:2,
+                departmentsListname: '神经外科'
+            },
+            {
+                ids:3,
+                departmentsListname: '神经外科'
+            },
+            {
+                ids:4,
+                departmentsListname: '神经外科'
+            },{
+                ids:5,
+                departmentsListname: '神经外科'
+            },{
+                ids:6,
+                departmentsListname: '神经外科'
+            },{
+                ids:7,
+                departmentsListname: '神经外科'
+            },{
+                ids:8,
+                departmentsListname: '神经外科'
+            },{
+                ids:9,
+                departmentsListname: '神经外科'
+            }
+        ]
+        var departmentsHtml = '';
+        $.each(departmentsUl,function(k,v){
+            departmentsHtml += '<li><a>'+departmentsUl[k].departmentsName+'</a></li>'
+        })
+        $('.departmentsUl').append(departmentsHtml);
+        var departmentsrightHtml = '<ul class="departmentsrightUl">';
+        $.each(departmentsUl[0].departmentsList,function(k,v) {
+            departmentsrightHtml += '<li><span></span><a>'+departmentsUl[0].departmentsList[k].departmentsListname+'</a></li>'
+        })
+        departmentsrightHtml +='</ul>';
+        $('.departmentshtml').html(departmentsrightHtml);
+        $('.departmentsUl li').mousemove(function(){
+            $(this).css('background','#128bcf');
+            $(this).find('a').css('color','#fff');
+            $(this).siblings().css('background', '');
+            $(this).siblings().find('a').css('color','#1288ca')
+        }).click(function(){
+            var departmentsIndex = $(this).index();
+            var departmentsrightHtml = '<ul class="departmentsrightUl">';
+            $.each(departmentsUl[departmentsIndex].departmentsList,function(k,v) {
+                departmentsrightHtml += '<li><span></span><a>'+departmentsUl[departmentsIndex].departmentsList[k].departmentsListname+'</a></li>'
+            })
+            departmentsrightHtml +='</ul>';
+            $('.departmentshtml').html(departmentsrightHtml);
+            departmentsTitle =$(this).text();
+            $('.departmentsTitle').empty()
+            $('.departmentsTitle').append(departmentsTitle)
+        })
+        $('.departmentsrightUl li').click(function() {
+            var departmentsrightIndex = $(this).index();
+            $.each(departmentsUl,function(k,v) {
+                if (departmentsUl[k].departmentsName==$('.departmentsTitle').text()) {
+                    console.log(departmentsUl[k].departmentsList[departmentsrightIndex])
+                    var departmentsrightuiHtml = '<div class="departmentsconten">'+departmentsUl[k].departmentsList[departmentsrightIndex].departmentsItem.departmentsconten+'</div>'+
+                        '<div class="departmentsimg"><img src='+departmentsUl[k].departmentsList[departmentsrightIndex].departmentsItem.departmentsimg+' alt=""></div>'
+                }
+                $('.departmentshtml').html(departmentsrightuiHtml);
+            })
+        })
+        var departmentsUlYDhtml = '';
+        $.each(departmentsUlYD,function(k,v) {
+            departmentsUlYDhtml += '<li><a>'+departmentsUlYD[k].departmentsName+'</a></li>'
+        })
+        $('.departmentsUlYDhtml').append(departmentsUlYDhtml)
+    });
+</script>
+</body>
+</html>

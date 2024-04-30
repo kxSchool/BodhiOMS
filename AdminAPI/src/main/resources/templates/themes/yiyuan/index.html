@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<div th:replace="themes/yiyuan/header::header('首页',null)">
+</div>
+<link rel="stylesheet" href="/static/yiyuan/layui/css/layui.css">
+<link rel="stylesheet" href="/static/yiyuan/css/index.css">
+</head>
+<body>
+<div class="index">
+    <!--头部-->
+    <div th:include="themes/yiyuan/index_top::index_top"></div>
+    <div class="carousel">
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide" th:each="ads : ${ads}"><img th:src="${ads.articleThumbnail}" alt=""></div>
+            </div>
+            <!-- Add Arrows -->
+            <!-- <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div> -->
+            <div class="swiper-pagination"></div>
+        </div>
+    </div>
+    <!--主题内容-->
+    <main>
+        <div class="margin">
+            <!-- 提示 -->
+            <!-- <div class="mainTitle">
+                <i class="layui-icon" style="font-size: 20px;color: #61b7c3;font-weight: bold;">&#xe645;</i>
+                <ul class="mainmargin">
+                    <li><a href=""><span>公卫中心与WHO连线　从卫生系统视角探讨中国应对COVID-19的战略方针
+                     </span>
+                     <span>2020-05-08</span>
+                    </a></li>
+                </ul>
+            </div> -->
+            <div class="mainContent">
+                <div class="contentTitle">
+                    <fieldset class="layui-elem-field layui-field-title" style="color: #1289cd;" >
+                        <legend>Departments Navigation</legend>
+                    </fieldset>
+                </div>
+                <ul class="patientContent">
+                    <li><img src="/static/yiyuan/picture/surgery.png" alt=""><div class="patientContentpostion"></div>
+                    </li>
+                    <li><img src="/static/yiyuan/picture/medicine.png" alt=""><div class="patientContentpostion"></div>
+                    </li>
+                    <li><img src="/static/yiyuan/picture/womenHospital.png" alt=""><div class="patientContentpostion"></div></li>
+                    <li><img src="/static/yiyuan/picture/pediatric.png" alt=""><div class="patientContentpostion"></div></li>
+                    <li><img src="/static/yiyuan/picture/Fiveorgans.png" alt=""><div class="patientContentpostion"></div></li>
+                    <li><img src="/static/yiyuan/picture/medical.png" alt=""><div class="patientContentpostion"></div></li>
+                </ul>
+            </div>
+            <div class="mainContent">
+                <div class="contentTitle">
+                    <fieldset class="layui-elem-field layui-field-title" style="color: #1289cd;" >
+                        <legend>Hospital Information</legend>
+                    </fieldset>
+                </div>
+                <div class="hospitalInformation">
+                    <div class="hospitalLeft">
+                        <img src="/static/yiyuan/picture/informationImg.jpg" alt="">
+                    </div>
+                    <ul class="hospitalRight">
+                        <li><img src="/static/yiyuan/picture/2OYlidEcTES5mZ3YTPUw_A.jpg" alt=""><div class="hospitalPosition"></div></li>
+                        <li><img src="/static/yiyuan/picture/k9OE6dofQ2aPJznYkwaq_A.jpg" alt=""><div class="hospitalPosition"></div></li>
+                        <li><img src="/static/yiyuan/picture/98skg4RTRtigcaLIwbs8bw.jpg" alt=""><div class="hospitalPosition"></div></li>
+                        <li><img src="/static/yiyuan/picture/PlbBzsRiSLqC8jnxivuaFQ.jpg" alt=""><div class="hospitalPosition"></div></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!--脚部-->
+    <div th:include="themes/yiyuan/footer::footer"></div>
+</div>
+
+<script>
+    /*导入头部和尾部*/
+    $(document).ready(function(){
+        $('.patientContent li').mousemove(function(){
+            $(this).find(".patientContentpostion").show();
+            $(this).siblings().find('.patientContentpostion').hide();
+        })
+        $('.hospitalRight li').mousemove(function() {
+            $(this).find('.hospitalPosition').show();
+            $(this).siblings().find('.hospitalPosition').hide();
+        })
+    });
+</script>
+
+</body>
+</html>
